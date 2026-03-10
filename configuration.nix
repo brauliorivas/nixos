@@ -38,6 +38,7 @@
   services.xserver.enable = true;
   services.xserver.xkb.layout = "latam";
   services.xserver.exportConfiguration = true;
+  services.upower.enable = true;
 
   users.users.brauliorivas = {
     isNormalUser = true;
@@ -85,6 +86,7 @@
     nixfmt
     nixd
     nodejs_24
+    ashell
   ];
 
   system.copySystemConfiguration = true;
