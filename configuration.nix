@@ -77,12 +77,17 @@
     neovim
     git
     yazi
-    bat
-    zoxide
     tmux
     oh-my-posh
+
+    zoxide
     ripgrep
     fd
+    btop
+    procs
+    delta
+    bat
+
     clojure
     gcc
     gnumake
@@ -94,6 +99,9 @@
     nodejs_24
     ashell
     sddm-astronaut
+
+    nwg-look
+    rofi
   ];
 
   system.copySystemConfiguration = true;
