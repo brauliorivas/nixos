@@ -15,11 +15,9 @@
 
   networking.hostName = "nixos";
   networking.hostId = "a3f9c2b1";
-
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Guayaquil";
-
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -29,6 +27,8 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
   };
   services.displayManager.sddm = {
     enable = true;
@@ -46,12 +46,28 @@
     packages = with pkgs; [
       fastfetch
       swaybg
+      clojure
+      clojure-lsp
+      stylua
+      nixfmt
+      nixd
+      nodejs_24
+      gleam
+      go
+      gopls
+      lua5_4_compat
+      lua-language-server
+      python314
+      plocate
+      glow
+      duf
     ];
     isNormalUser = true;
     extraGroups = [
       "wheel"
       "networkmanager"
-    ]; # Enable ‘sudo’ for the user.
+      "shared"
+    ];
   };
 
   users = {
@@ -66,6 +82,22 @@
   programs = {
     hyprland.enable = true;
     zsh.enable = true;
+    xwayland.enable = true;
+  };
+  xdg = {
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      config = {
+        common.default = "*";
+        hyprland.default = [
+          "hyprland"
+        ];
+      };
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -87,24 +119,28 @@
     procs
     delta
     bat
+    eza
 
-    clojure
     gcc
     gnumake
     cmake
     tree-sitter
-    stylua
-    nixfmt
-    nixd
-    nodejs_24
+
+    pnpm
     ashell
     sddm-astronaut
 
     nwg-look
     rofi
+    hyprpolkitagent
+    dunst
+    hyprpicker
+    wl-clipboard
+    nautilus
+    andromeda-gtk-theme
+    numix-icon-theme
   ];
 
   system.copySystemConfiguration = true;
-
   system.stateVersion = "25.11";
 }
