@@ -33,6 +33,8 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    theme = "sddm-astronaut-theme";
+    extraPackages = [ pkgs.sddm-astronaut ];
   };
   services.libinput.enable = true;
   services.xserver.enable = true;
@@ -41,6 +43,10 @@
   services.upower.enable = true;
 
   users.users.brauliorivas = {
+    packages = with pkgs; [
+      fastfetch
+      swaybg
+    ];
     isNormalUser = true;
     extraGroups = [
       "wheel"
@@ -87,6 +93,7 @@
     nixd
     nodejs_24
     ashell
+    sddm-astronaut
   ];
 
   system.copySystemConfiguration = true;
