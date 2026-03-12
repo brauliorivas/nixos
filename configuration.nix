@@ -45,7 +45,6 @@
   users.users.brauliorivas = {
     packages = with pkgs; [
       fastfetch
-      swaybg
       clojure
       clojure-lsp
       stylua
@@ -131,11 +130,16 @@
     sddm-astronaut
 
     nwg-look
-    rofi
-    hyprpolkitagent
     dunst
+
+    swaybg
     hyprpicker
+    wofi
+    hypridle
+    hyprlock
+    hyprpolkitagent
     wl-clipboard
+    cliphist
     nautilus
     andromeda-gtk-theme
     numix-icon-theme
