@@ -24,6 +24,11 @@
     keyMap = /etc/kbd/keymaps/i386/qwerty/la-latin1.map.gz;
   };
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -45,21 +50,31 @@
   users.users.brauliorivas = {
     packages = with pkgs; [
       fastfetch
-      clojure
-      clojure-lsp
       stylua
       nixfmt
       nixd
       nodejs_24
-      gleam
-      go
-      gopls
       lua5_4_compat
       lua-language-server
-      python314
       plocate
       glow
       duf
+
+      kitty
+      brave
+      neovim
+      yazi
+      tmux
+      oh-my-posh
+      zoxide
+      ripgrep
+      fd
+      btop
+      procs
+      delta
+      bat
+      eza
+      tree-sitter
     ];
     isNormalUser = true;
     extraGroups = [
@@ -82,6 +97,7 @@
     hyprland.enable = true;
     zsh.enable = true;
     xwayland.enable = true;
+    direnv.enable = true;
   };
   xdg = {
     portal = {
@@ -102,36 +118,13 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    kitty
     xkeyboard-config
-    brave
-    neovim
     git
-    yazi
-    tmux
-    oh-my-posh
 
-    zoxide
-    ripgrep
-    fd
-    btop
-    procs
-    delta
-    bat
-    eza
-
-    gcc
-    gnumake
-    cmake
-    tree-sitter
-
-    pnpm
     ashell
     sddm-astronaut
-
     nwg-look
     dunst
-
     swaybg
     hyprpicker
     wofi
