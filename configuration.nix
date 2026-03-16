@@ -59,7 +59,6 @@
       plocate
       glow
       duf
-
       kitty
       brave
       neovim
