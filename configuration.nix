@@ -53,9 +53,9 @@
       stylua
       nixfmt
       nixd
-      nodejs_24
       lua5_4_compat
       lua-language-server
+      tdf
       plocate
       glow
       duf
@@ -74,6 +74,9 @@
       bat
       eza
       tree-sitter
+      grim
+      swappy
+      slurp
     ];
     isNormalUser = true;
     extraGroups = [
