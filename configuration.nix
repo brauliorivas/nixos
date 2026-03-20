@@ -61,6 +61,7 @@
       duf
       kitty
       brave
+      firefox
       neovim
       yazi
       tmux
