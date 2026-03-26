@@ -78,6 +78,8 @@
       grim
       swappy
       slurp
+      typst
+      typstyle
     ];
     isNormalUser = true;
     extraGroups = [
