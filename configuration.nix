@@ -80,6 +80,8 @@
       slurp
       typst
       typstyle
+      google-cloud-sdk
+      pidgin
     ];
     isNormalUser = true;
     extraGroups = [
