@@ -47,6 +47,13 @@
   services.xserver.exportConfiguration = true;
   services.upower.enable = true;
 
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "github-copilot-cli"
+      "claude-code"
+    ];
+
   users.users.brauliorivas = {
     packages = with pkgs; [
       fastfetch
@@ -82,6 +89,9 @@
       typstyle
       google-cloud-sdk
       pidgin
+      nodejs_24
+      github-copilot-cli
+      claude-code
     ];
     isNormalUser = true;
     extraGroups = [
