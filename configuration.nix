@@ -54,45 +54,72 @@
       "claude-code"
     ];
 
+  virtualisation.docker = {
+    enable = false;
+
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+      daemon.settings = {
+        dns = [
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
+        registry-mirrors = [ "https://mirror.gcr.io" ];
+      };
+    };
+  };
+
   users.users.brauliorivas = {
-    packages = with pkgs; [
-      fastfetch
-      stylua
-      nixfmt
-      nixd
-      lua5_4_compat
-      lua-language-server
-      tdf
-      plocate
-      glow
-      duf
-      kitty
-      brave
-      firefox
-      neovim
-      yazi
-      tmux
-      oh-my-posh
-      zoxide
-      ripgrep
-      fd
-      btop
-      procs
-      delta
-      bat
-      eza
-      tree-sitter
-      grim
-      swappy
-      slurp
-      typst
-      typstyle
-      google-cloud-sdk
-      pidgin
-      nodejs_24
-      github-copilot-cli
-      claude-code
-    ];
+    linger = true;
+    packages =
+      let
+        unstable =
+          import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz")
+            {
+              config = config.nixpkgs.config;
+            };
+      in
+      with pkgs;
+      [
+        # Languages
+        nixfmt
+        nixd
+        lua5_4_compat
+        lua-language-server
+        stylua
+        typst
+        typstyle
+        # Dev tools
+        tmux
+        oh-my-posh
+        zoxide
+        ripgrep
+        fd
+        btop
+        procs
+        delta
+        bat
+        eza
+        fastfetch
+        plocate
+        yazi
+        # Programs
+        brave
+        firefox
+        kitty
+        pidgin
+        unstable.neovim
+        tdf
+        glow
+        duf
+        tree-sitter
+        grim
+        swappy
+        slurp
+        google-cloud-sdk
+        uv
+      ];
     isNormalUser = true;
     extraGroups = [
       "wheel"
@@ -115,6 +142,7 @@
     zsh.enable = true;
     xwayland.enable = true;
     direnv.enable = true;
+    nix-ld.enable = true;
   };
   xdg = {
     portal = {
