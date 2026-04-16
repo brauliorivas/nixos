@@ -52,6 +52,7 @@
     builtins.elem (lib.getName pkg) [
       "github-copilot-cli"
       "claude-code"
+      "google-chrome"
     ];
 
   virtualisation.docker = {
@@ -104,12 +105,15 @@
         fastfetch
         plocate
         yazi
+        uv
         # Programs
         brave
         firefox
         kitty
         pidgin
         unstable.neovim
+        unstable.ollama
+        unstable.opencode
         tdf
         glow
         duf
@@ -118,7 +122,7 @@
         swappy
         slurp
         google-cloud-sdk
-        uv
+        google-chrome
       ];
     isNormalUser = true;
     extraGroups = [
