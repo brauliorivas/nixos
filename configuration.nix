@@ -91,6 +91,7 @@
         stylua
         typst
         typstyle
+        nodejs-slim_24
         # Dev tools
         tmux
         oh-my-posh
@@ -106,14 +107,19 @@
         plocate
         yazi
         uv
+        tree
         # Programs
         brave
         firefox
         kitty
         pidgin
         unstable.neovim
-        unstable.ollama
         unstable.opencode
+        unstable.claude-code
+        unstable.github-copilot-cli
+        unstable.ollama
+        unstable.codex
+        lsof
         tdf
         glow
         duf
